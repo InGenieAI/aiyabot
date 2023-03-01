@@ -139,7 +139,8 @@ def prompt_mod(prompt, negative_prompt):
     if global_var.prompt_ban_list:
         for x in global_var.prompt_ban_list:
             x = str(x.lower())
-            if x in prompt.lower():
+            words_in_prompt = prompt.lower().split()
+            if x in words_in_prompt:
                 return "Stop", x
     # otherwise mod the prompt/negative prompt
     if global_var.prompt_ignore_list or global_var.negative_prompt_prefix:
